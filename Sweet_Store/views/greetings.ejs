@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Sets the properties of the visible area of the web page
+      to ensure the adaptability of the Bootstrap template-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	  <!-- Connecting the Bootstrap CSS master file via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Connecting external font styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+
+    <!-- Include own CSS style sheet -->
+    <link rel="stylesheet" href="main.css">
+
+    <title>Sweet Store</title>
+  </head>
+
+  <body>
+    <!-- Bootstrap "Navbar" component. Taken from https://getbootstrap.com/docs/5.1/components/navbar/ -->
+    <!-- Creating an off-canvas navigation bar that expands at a breakpoint -->
+    <nav class="navbar-expand-lg navbar navbar-light" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Sweet Store</a>
+        <!-- Bootstrap: the hamburger menu that appears when minimized on a smaller resolution -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 top-menu">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="cart" id="cartRef">Cart</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Login
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- Bootstrap "Modal" component. Taken from https://getbootstrap.com/docs/5.1/components/modal/ -->
+              <a class="dropdown-item" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+              <a class="dropdown-item" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+              </ul>
+              <!-- Bootstrap: create a modal window for the login form -->
+              <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/login" method="post" id="login-form">
+                      <div class="modal-body">
+                        <input type="text" class="input-field" id="username" name="username" placeholder="Enter your user name" required><br>
+                        <input type="password" class="input-field" id="password" name="password" placeholder="Enter your password" required>
+                        <input type="hidden" name="userId" id="userId">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="all-buttons www">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Bootstrap: create a modal window for registration -->
+              <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/register" method="post" id="reg-form">
+                      <div class="modal-body">
+                        <input type="text" class="input-field" id="username" name="username" placeholder="Enter user name" required><br>
+                        <input type="email" class="input-field" id="email" name="email" placeholder="Enter your email" required><br>
+                        <input type="password" class="input-field" id="password" name="password" placeholder="Enter password" required>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="all-buttons">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- END OF Bootstrap "Modal" component -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END OF Bootstrap "Navbar" component -->
+
+    <!-- Bootstrap "Containers" component. Taken from https://getbootstrap.com/docs/5.2/layout/containers/#how-they-work -->
+    <section class="main-content">
+      <div class="container">
+        <h1 class="text-center">Welcome to our Sweet World! <a href="index.html">Click here to make your choice</a></h1>
+
+        <!-- Bootstrap "Carousel" component. Taken from https://getbootstrap.com/docs/5.1/components/carousel/ -->
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item" id="carousel1">
+              <img src="img/1.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item" id="carousel2">
+              <img src="img/2.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item" id="carousel3">
+              <img src="img/3.jpg" class="d-block w-100">
+            </div>
+          </div>
+        </div>
+        <!-- END OF Bootstrap "Carousel" component -->
+      </div>
+    </section>
+    <!-- END OF Bootstrap "Containers" component -->
+
+    <!-- Connecting JavaScript Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- Connecting own JavaScript in parallel with Bootstrap -->
+    <script src="script.js"></script>
+    <script>
+     if (!sessionStorage.getItem('userId')) {
+      // Generate a unique user ID and add to the Session storage.
+      // This is done once for use as an order ID.
+        sessionStorage.setItem('userId', Math.random().toString(36).substring(2, 10));
+      }
+
+      // This code block replaces the id="userId" tag property with the value stored in Session storage.
+      // Get all elements with the given ID.
+      const elements = document.querySelectorAll('[id="userId"]');
+      // Iterate through each element and write the value to the hidden form field.
+      elements.forEach(function(element) {
+        element.value = sessionStorage.getItem('userId');
+      });
+
+      // This block of code adds the necessary data to the HTTP request, sent by navbar item "Cart".
+      document.getElementById('cartRef').href = "cart?userId=" + sessionStorage.getItem('userId') + "&userName=" + sessionStorage.getItem('currentAuthUser');
+
+      // Adds the name of the current user to Session storage in case of successful authorization.
+      function saveUsername(username) {
+        sessionStorage.setItem('currentAuthUser', username);
+      }
+      saveUsername("<%= username %>");
+    </script>
+  </body>
+
+  <footer class="footer">
+    <section>
+      <div class="container">
+      <p>15 The Diamond, Gort Glebe, Carndonagh, Co. Donegal, F93 HY45</p>
+      <p>Phone 091 234 33 21<p>
+    </section>
+  </footer>
+</html>
